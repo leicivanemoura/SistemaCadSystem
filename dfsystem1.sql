@@ -1,4 +1,4 @@
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+tb_telefonepessoatb_funcionarioSET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
@@ -8,8 +8,6 @@ USE `dfsystem` ;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`table3`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`table3` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`table3` (
 )
 ENGINE = InnoDB;
@@ -18,8 +16,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`table4`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`table4` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`table4` (
 )
 ENGINE = InnoDB;
@@ -28,8 +24,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`table7`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`table7` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`table7` (
 )
 ENGINE = InnoDB;
@@ -38,15 +32,13 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_funcionario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_funcionario` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_funcionario` (
   `idfuncionario` INT NOT NULL AUTO_INCREMENT,
   `tipofuncionario` VARCHAR(45) NOT NULL,
   `setorfuncionario` VARCHAR(45) NOT NULL,
   `funcaofuncionario` VARCHAR(45) NOT NULL,
-  `statusfuncionario` VARCHAR(45) NOT NULL,
-  `motivoinativo` VARCHAR(45) NOT NULL,
+  `statusfuncionario` VARCHAR(45) NULL,
+  `motivoinativo` VARCHAR(45) NULL,
   PRIMARY KEY (`idfuncionario`))
 ENGINE = InnoDB;
 
@@ -54,8 +46,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_pessoa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_pessoa` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_pessoa` (
   `idpessoa` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
@@ -80,8 +70,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_endereco`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_endereco` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_endereco` (
   `idendereco` INT NOT NULL AUTO_INCREMENT,
   `endereco` VARCHAR(255) NOT NULL,
@@ -97,8 +85,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_telefone`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_telefone` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_telefone` (
   `idtelefone` INT NOT NULL AUTO_INCREMENT,
   `tipotelefone` VARCHAR(45) NULL,
@@ -113,8 +99,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_telefonepessoa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_telefonepessoa` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_telefonepessoa` (
   `tb_pessoa_idpessoa` INT NOT NULL,
   `tb_telefone_idtelefone` INT NOT NULL,
@@ -137,8 +121,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_enderecopessoa`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_enderecopessoa` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_enderecopessoa` (
   `tb_pessoa_idpessoa` INT NOT NULL,
   `tb_endereco_idendereco` INT NOT NULL,
@@ -161,8 +143,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb-cliente`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb-cliente` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb-cliente` (
   `idcliente` INT NOT NULL AUTO_INCREMENT,
   `tb_pessoa_idpessoa` INT NOT NULL,
@@ -179,8 +159,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_os`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_os` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_os` (
   `numos` INT NOT NULL AUTO_INCREMENT,
   `dataabertura` DATE NOT NULL,
@@ -206,8 +184,6 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `dfsystem`.`tb_usuario`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `dfsystem`.`tb_usuario` ;
-
 CREATE TABLE IF NOT EXISTS `dfsystem`.`tb_usuario` (
   `idusuario` INT NOT NULL AUTO_INCREMENT,
   `perfilusuario` VARCHAR(45) NOT NULL,

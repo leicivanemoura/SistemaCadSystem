@@ -4,7 +4,7 @@ include_once 'AutoLoad.php';
 
 $objeto = new Funcionario();
 
-class Funcionario  {
+class Funcionario {
 
     //Atributos da Classe Funcionario
     //Private só pode ser acessado na mesma classe;
@@ -19,6 +19,8 @@ class Funcionario  {
     protected $sexo;
     protected $datanascimento;
     protected $datacadastro;
+    protected $datavalida;
+    protected $datavalidaNacimento;
     
     protected $idendereco;
     protected $endereco;
@@ -99,39 +101,116 @@ class Funcionario  {
     }
 
     public function Inclui() {
-        //aclecio colocou
         //funcionario
         /* @var $_POST type */
+
+        $this->nome = $_POST['nome'];
+        $this->sobrenome = $_POST['sobrenome'];
+        $this->rg = $_POST['rg'];
+        $this->cpf = $_POST['cpf'];
+        $this->email = $_POST['email'];
+        $this->sexo = $_POST['sexo'];
+        $this->datanascimento = $_POST['datanascimento'];
+        $this->datavalidaNacimento = date('d/m/Y', strtotime($this->datanascimento));
+        $this->datacadastro = $_POST['datacadastro'];
+        $this->datavalida = date('d/m/Y', strtotime($this->datacadastro));
+        if (empty($this->nome)) {
+            echo "<script>alert('Campos obrigatórios em branco!Nome')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->sobrenome)) {
+            echo "<script>alert('Campos obrigatórios em branco!Sobrenome')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->cpf)) {
+            echo "<script>alert('Campos obrigatórios em branco!CPF')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->datacadastro)) {
+            echo "<script>alert('Campos obrigatórios em branco!Data de Cadastro')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->datavalida)) {
+            echo "<script>alert('Campos obrigatórios em branco!Data de Cadastro')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+
+        $this->endereco = $_POST['endereco'];
+        $this->bairro = $_POST['bairro'];
+        $this->cidade = $_POST['cidade'];
+        $this->uf = $_POST['uf'];
+        $this->cep = $_POST['cep'];
+        $this->ptreferencia = $_POST['ptreferencia'];
+        if (empty($this->endereco)) {
+            echo "<script>alert('Campos obrigatórios em branco!Endereco')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->bairro)) {
+            echo "<script>alert('Campos obrigatórios em branco!Bairro')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->cidade)) {
+            echo "<script>alert('Campos obrigatórios em branco!Cidade')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->uf)) {
+            echo "<script>alert('Campos obrigatórios em branco!UF')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+
+        $this->tipotelefone = $_POST['tipotelefone1'];
+        $this->dddtelefone = $_POST['dddtelefone1'];
+        $this->numtelefone = $_POST['numtelefone1'];
+        $this->operadora = $_POST['operadora1'];
+        $this->horariocontato = $_POST['horariocontato1'];
+        if (empty($this->dddtelefone)) {
+            echo "<script>alert('Campos obrigatórios em branco!DDD1')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        if (empty($this->numtelefone)) {
+            echo "<script>alert('Campos obrigatórios em branco!NºTelefone1')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+        
+        $this->tipotelefone = $_POST['tipotelefone2'];
+        $this->dddtelefone = $_POST['dddtelefone2'];
+        $this->numtelefone = $_POST['numtelefone2'];
+        $this->operadora = $_POST['operadora2'];
+        $this->horariocontato = $_POST['horariocontato2'];
+
         $this->tipofuncionario = $_POST['tipofuncionario'];
         $this->statusfuncionario = $_POST['statusfuncionario'];
         $this->motivoinativo = $_POST['motivoinativo'];
         $this->setorfuncionario = $_POST['setorfuncionario'];
         $this->funcaofuncionario = $_POST['funcaofuncionario'];
-     
-        
-        
-         if (empty($this->tipofuncionario)) {
-            echo "<script>alert('tipofuncionario de fuincioanrio obrigatio!')</script>";
-            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
-            exit();
-        }
-           if (empty($this->funcaofuncionario)){
-            echo "<script>alert('funcaofuncionario preecha o campo!')</script>";
-            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
-            exit();
-        }
-      
-        if (empty($this->statusfuncionario)) {
-            echo "<script>alert('statusfuncionario do funcionario vazio!')</script>";
+
+        if (empty($this->tipofuncionario)) {
+            echo "<script>alert('Campos obrigatórios em branco!Tipo')</script>";
             echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
             exit();
         }
         if (empty($this->setorfuncionario)) {
-            echo "<script>alert('setorfuncionario funcionario vazio!')</script>";
+            echo "<script>alert('Campos obrigatórios em branco!Setor')</script>";
             echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
             exit();
         }
-        
+        if (empty($this->funcaofuncionario)) {
+            echo "<script>alert('Campos obrigatórios em branco!Função')</script>";
+            echo "<script>document.location = '../view/FormCadFuncionario.php'</script>";
+            exit();
+        }
+
         try {
             $con = new Conexao();
             $pdo = $con->conectar();
@@ -145,94 +224,73 @@ class Funcionario  {
             $cst->bindParam(":statusfuncionario", $this->statusfuncionario, PDO::PARAM_STR);
             $cst->bindParam(":motivoinativo", $this->motivoinativo, PDO::PARAM_STR);
             //print_r($cst);
-            
+            $id = $pdo->lastInsertId();
             if ($cst->execute()) {
-                //inserindo dados na tb_pessoa
-                   //pessoa:
-                
-                $this->nome = $_POST['nome'];
-                $this->sobrenome = $_POST['sobrenome'];
-                $this->rg = $_POST['rg'];
-                $this->cpf = $_POST['cpf'];
-                $this->email = $_POST['email'];
-                $this->sexo = $_POST['sexo'];
-                $this->datanascimento = $_POST['datanascimento'];
-                $this->datacadastro = $_POST['datacadastro'];
-               // print_r($_POST);
-                //exit();
-
-                $cst = $pdo->prepare("INSERT INTO tb_pessoa (nome , sobrenome ,rg, cpf , email, sexo, datanascimento, datacadastro,tb_endereco_idendereco, tb_telefone_idtelefone) VALUES(:nome , :sobrenome, :rg, :cpf, :email, sexo, datanascimento, datacadastro,:tb_endereco_idendereco, :tb_telefone_id_telefone);");
-                $cst->bindParam(":nome", $this->nome, PDO::PARAM_STR);
-                $cst->bindParam(":sobrenome", $this->sobrenome, PDO::PARAM_STR);
-                $cst->bindParam(":rg", $this->rg, PDO::PARAM_STR);
-                $cst->bindParam(":cpf", $this->cpf, PDO::PARAM_STR);
-                $cst->bindParam(":email", $this->email, PDO::PARAM_STR);
-                $cst->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
-                $cst->bindParam(":datanascimento", $this->datanascimento, PDO::PARAM_STR);
-                $cst->bindParam(":datacadastro", $this->datacadastro, PDO::PARAM_STR);
-           // print_r($cst); 
-            
-            
-                
-            if ($cst->execute()) {
-            
+            //inserindo dados na tb_pessoa                         
+            // print_r($_POST);
+            //exit();
+            $cst1 = $pdo->prepare("INSERT INTO tb_pessoa (nome , sobrenome ,rg, cpf , email, sexo, datanascimento, datacadastro,tb_funcionario_idfuncionario)"
+                      . "VALUES(:nome , :sobrenome, :rg, :cpf, :email, :sexo, :datanascimento, :datacadastro,:tb_funcionario);");
+            $cst1->bindParam(":nome", $this->nome, PDO::PARAM_STR);
+            $cst1->bindParam(":sobrenome", $this->sobrenome, PDO::PARAM_STR);
+            $cst1->bindParam(":rg", $this->rg, PDO::PARAM_STR);
+            $cst1->bindParam(":cpf", $this->cpf, PDO::PARAM_STR);
+            $cst1->bindParam(":email", $this->email, PDO::PARAM_STR);
+            $cst1->bindParam(":sexo", $this->sexo, PDO::PARAM_STR);
+            $cst1->bindParam(":datanascimento", $this->datavalidaNacimento, PDO::PARAM_STR);
+            $cst1->bindParam(":datacadastro", $this->datavalida, PDO::PARAM_STR);
+            $cst1->bindParam(":tb_funcionario", $id, PDO::PARAM_STR);
+            // print_r($cst); 
+            $id = $pdo->lastInsertId();
+            if ($cst1->execute()) {
             //inserindo dados na tb_endereco   
-                //endereco:
-                $this->endereco = $_POST['endereco'];
-                $this->bairro = $_POST['bairro'];
-                $this->cidade = $_POST['cidade'];
-                $this->uf = $_POST['uf'];
-                $this->cep = $_POST['cep'];
-                $this->ptreferencia = $_POST['ptreferencia'];
-        
-                $cst = $pdo->prepare("INSERT INTO tb_endereco (endereco , bairro ,cidade , uf , cep, ptreferencia) VALUES(:endereco , :bairro, :cidade, :uf, :cep, ptreferencia);");
-                $cst->bindParam(":endereco", $this->endereco, PDO::PARAM_STR);
-                $cst->bindParam(":bairro", $this->bairro, PDO::PARAM_STR);
-                $cst->bindParam(":cidade", $this->cidade, PDO::PARAM_STR);
-                $cst->bindParam(":uf", $this->uf, PDO::PARAM_STR);
-                $cst->bindParam(":cep", $this->cep, PDO::PARAM_STR);
-                $cst->bindParam(":ptreferencia", $this->ptreferencia, PDO::PARAM_STR);
-             //print_r($cst);  
-            
-             
-             if ($cst->execute()) {
-            //inserindo dados na tb_telefone  
-                $this->tipotelefone = $_POST['tipotelefone'];
-                $this->dddtelefone = $_POST['dddtelefone'];
-                $this->numtelefone = $_POST['numtelefone'];
-                $this->operadora = $_POST['operadora'];
-                $this->horariocontato = $_POST['horariocontato'];
+            $cst2 = $pdo->prepare("INSERT INTO tb_endereco (endereco , bairro ,cidade , uf , cep, ptreferencia)"
+                        . " VALUES(:endereco , :bairro, :cidade, :uf, :cep, ptreferencia);");
+            $cst2->bindParam(":endereco", $this->endereco, PDO::PARAM_STR);
+            $cst2->bindParam(":bairro", $this->bairro, PDO::PARAM_STR);
+            $cst2->bindParam(":cidade", $this->cidade, PDO::PARAM_STR);
+            $cst2->bindParam(":uf", $this->uf, PDO::PARAM_STR);
+            $cst2->bindParam(":cep", $this->cep, PDO::PARAM_STR);
+            $cst2->bindParam(":ptreferencia", $this->ptreferencia, PDO::PARAM_STR);
+            //print_r($cst);  
+            $id = $pdo->lastInsertId();
+            if ($cst2->execute()){
+            //inserindo dados na tb_telefone   - tel1              
+            $cst3 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato)"
+                        . " VALUES(:tipotelefone1 , :dddtelefone1, :numtelefone1, :operadora1, :horariocontato1);");
+            $cst3->bindParam(":tipotelefone1", $this->tipotelefone, PDO::PARAM_STR);
+            $cst3->bindParam(":dddtelefone1", $this->dddtelefone, PDO::PARAM_STR);
+            $cst3->bindParam(":numtelefone1", $this->numtelefone, PDO::PARAM_STR);
+            $cst3->bindParam(":operadora1", $this->operadora, PDO::PARAM_STR);
+            $cst3->bindParam(":horariocontato1", $this->horariocontato, PDO::PARAM_STR);
+            //print_r($cst);  
+            $id = $pdo->lastInsertId();
+            if ($cst3->execute()){
+            //inserindo dados na tb_telefone - tel 2
+            $cst4 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato)"
+                        . " VALUES(:tipotelefone2 , :dddtelefone2, :numtelefone2, :operadora2, :horariocontato2);");
+            $cst4->bindParam(":tipotelefone2", $this->tipotelefone, PDO::PARAM_STR);
+            $cst4->bindParam(":dddtelefone2", $this->dddtelefone, PDO::PARAM_STR);
+            $cst4->bindParam(":numtelefone2", $this->numtelefone, PDO::PARAM_STR);
+            $cst4->bindParam(":operadora2", $this->operadora, PDO::PARAM_STR);
+            $cst4->bindParam(":horariocontato2", $this->horariocontato, PDO::PARAM_STR);   
+              }                
+             }
+            }
+            //return 0;
+           };
 
-                   $cst = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato) VALUES(:tipotelefone , :dddtelefone, :numtelefone, :operadora, :horariocontato);");
-                    $cst->bindParam(":tipotelefone", $this->tipotelefone, PDO::PARAM_STR);
-                    $cst->bindParam(":dddtelefone", $this->dddtelefone, PDO::PARAM_STR);
-                    $cst->bindParam(":numtelefone", $this->numtelefone, PDO::PARAM_STR);
-                    $cst->bindParam(":operadora", $this->operadora, PDO::PARAM_STR);
-                    $cst->bindParam(":horariocontato", $this->horariocontato, PDO::PARAM_STR);
-                     print_r($cst);
-
-                        print_r($cst->errorInfo(), true);
-                        echo "<script>alert('Cadastro de Funcionario efetuado com sucesso!')</script>";
-                        echo"<script>document.location = '../view/FormCadFuncionario.php'</script>";
-                        exit();
-                }
-            
-               }
-                        //return 0;
-            };
-            
             print_r($pdo->lastInsertId());
             exit();
             return $pdo->lastInsertId();
-            
+
             return 0;
-        }
-         catch (PDOException $ex) {
+        } catch (PDOException $ex) {
             'erro' . $ex->getMessage();
             return 0;
-        }    
+        }
     }
-    
+
     public function Altera($objeto) {
         try {
             $con = new Conexao();

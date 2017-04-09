@@ -1,6 +1,5 @@
 <?php
-include_once ('../class/AutoLoad.php');
-include_once '../class/Funcionario.php';
+
 
 
 /* $objPessoa = new Pessoa();

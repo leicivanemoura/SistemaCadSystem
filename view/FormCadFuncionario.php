@@ -203,7 +203,7 @@
                     <div class="row"> <!-- Abrindo 4ª linha do formulário -->
                         <div class='col-md-2'>
                             <label>Tipo de Telefone:</label>
-                            <select id='tipotelefone1' name="tipotelefone" class="form-control">
+                            <select id='tipotelefone1' name="tipotelefone1" class="form-control">
                                 <option value="">Selecione...</option>
                                 <option value="1">Celular</option>
                                 <option value="2">Comercial</option>
@@ -214,23 +214,23 @@
 
                         <div class='col-md-1'>
                             <label>DDD:</label>                                                
-                            <input type="text" id="dddtelefone1" name="dddtelefone" class="form-control" placeholder="DDD"/>
+                            <input type="text" id="dddtelefone1" name="dddtelefone1" class="form-control" placeholder="DDD"/>
                         </div><!-- Fechando div do campo DDD para tel 1 -->
 
                         <div class='col-md-3'>    
                             <label>Nº Telefone</label>
-                            <input type="text" id="numtelefone1" name="numtelefone" class="form-control" placeholder="NºTelefone"/>
+                            <input type="text" id="numtelefone1" name="numtelefone1" class="form-control" placeholder="NºTelefone"/>
                         </div><!-- Fechando div do campo nºtelefone para tel 1 -->
 
 
                         <div class='col-md-2'>
                             <label>Operadora:</label>                                                
-                            <input type="text" id="operadora1" name="operadora" class="form-control" placeholder="Operadora"/>
+                            <input type="text" id="operadora1" name="operadora1" class="form-control" placeholder="Operadora"/>
                         </div><!-- Fechando div do campo operadora para tel 1 -->
 
                         <div class='col-md-4'>
                             <label>Melhor Horário para contato:</label>                                                
-                            <input type="text" id="horariocontato1" name="horariocontato" class="form-control" placeholder="Melhor Horário"/>
+                            <input type="text" id="horariocontato1" name="horariocontato1" class="form-control" placeholder="Melhor Horário"/>
                         </div><!-- Fechando div do campo melhor horário para tel 2 -->
                     </div> <!--Fechando 4ª linha -->
 
@@ -238,7 +238,7 @@
                     <div class="row"><!--abrindo 5ªlinha-->
                         <div class='col-md-2'>
                             <label>Tipo de Telefone:</label>
-                            <select id='tipotelefone2' name="tipotelefone" class="form-control">
+                            <select id='tipotelefone2' name="tipotelefone2" class="form-control">
                                 <option value="">Selecione...</option>
                                 <option value="1">Celular</option>
                                 <option value="2">Comercial</option>
@@ -249,22 +249,22 @@
 
                         <div class='col-md-1'>
                             <label>DDD:</label>                                                
-                            <input type="text" id="dddtelefone2" name="dddtelefone" class="form-control" placeholder="DDD"/>
+                            <input type="text" id="dddtelefone2" name="dddtelefone2" class="form-control" placeholder="DDD"/>
                         </div><!-- Fechando div do campo DDD para tel 2 -->
 
                         <div class='col-md-3'>    
                             <label>Nº Telefone</label>
-                            <input type="text" id="numtelefone2" name="numtelefone" class="form-control" placeholder="NºTelefone"/>
+                            <input type="text" id="numtelefone2" name="numtelefone2" class="form-control" placeholder="NºTelefone"/>
                         </div><!-- Fechando div do campo nºtelefone para tel 2 -->
 
                         <div class='col-md-2'>
                             <label>Operadora:</label>                                                
-                            <input type="text" id="operadora2" name="operadora" class="form-control" placeholder="Operadora"/>
+                            <input type="text" id="operadora2" name="operadora2" class="form-control" placeholder="Operadora"/>
                         </div><!-- Fechando div do campo operadora para tel 2 -->
 
                         <div class='col-md-4'>
                             <label>Melhor Horário para contato:</label>                                                
-                            <input type="text" id="horariocontato2" name="horariocontato" class="form-control" placeholder="Melhor Horário"/>
+                            <input type="text" id="horariocontato2" name="horariocontato2" class="form-control" placeholder="Melhor Horário"/>
                         </div><!-- Fechando div do campo melhor horário para tel 2 -->
                     </div><!-- Fechando 5ª linha do formulário -->
 
@@ -279,7 +279,7 @@
                         
                         <div class='col-md-1'>    
                             <label>Status:</label> <br>
-                            <input type="checkbox" id="statusfuncionario" name="statusfuncionario">Ativo
+                            <input type="checkbox" id="statusfuncionario" name="statusfuncionario" checked>Ativo
                         </div><!-- Fechando div do campo Status -->
 
                         <div class='col-md-3'>  
