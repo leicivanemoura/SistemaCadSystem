@@ -214,23 +214,23 @@
 
                         <div class='col-md-1'>
                             <label>DDD:</label>                                                
-                            <input type="text" id="dddtelefone1" name="dddtelefone1" class="form-control" placeholder="DDD"/>
+                            <input type="text" id="dddtelefone" name="dddtelefone1" class="form-control" placeholder="DDD"/>
                         </div><!-- Fechando div do campo DDD para tel 1 -->
 
                         <div class='col-md-3'>    
                             <label>Nº Telefone</label>
-                            <input type="text" id="numtelefone1" name="numtelefone1" class="form-control" placeholder="NºTelefone"/>
+                            <input type="text" id="numtelefone" name="numtelefone1" class="form-control" placeholder="NºTelefone"/>
                         </div><!-- Fechando div do campo nºtelefone para tel 1 -->
 
 
                         <div class='col-md-2'>
                             <label>Operadora:</label>                                                
-                            <input type="text" id="operadora1" name="operadora1" class="form-control" placeholder="Operadora"/>
+                            <input type="text" id="operadora" name="operadora1" class="form-control" placeholder="Operadora"/>
                         </div><!-- Fechando div do campo operadora para tel 1 -->
 
                         <div class='col-md-4'>
                             <label>Melhor Horário para contato:</label>                                                
-                            <input type="text" id="horariocontato1" name="horariocontato1" class="form-control" placeholder="Melhor Horário"/>
+                            <input type="text" id="horariocontato" name="horariocontato1" class="form-control" placeholder="Melhor Horário"/>
                         </div><!-- Fechando div do campo melhor horário para tel 2 -->
                     </div> <!--Fechando 4ª linha -->
 

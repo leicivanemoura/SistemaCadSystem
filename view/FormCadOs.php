@@ -283,9 +283,9 @@ include_once '../class/Pessoa.php';
 
                     <br>
                     <div class="row"> <!-- Abrindo 7ª linha do formulário-->                 
-                        <div class='col-md-2'>
+                        <div class='col-md-12'>
                             <label>Descrição do Serviço:</label>
-                            <textarea name="descricaoos" cols="148" rows="5"></textarea>
+                            <textarea name="descricaoos" cols="148" rows="5" class="form-control"></textarea>
                         </div><!-- Fechando div do campo descrição do serviço -->                  
                     </div><!-- Fechando 7ª linha do formulário -->
 

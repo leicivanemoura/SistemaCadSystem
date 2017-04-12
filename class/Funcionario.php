@@ -37,6 +37,13 @@ class Funcionario {
     protected $operadora;
     protected $horariocontato;
     
+    protected $idtelefone2;
+    protected $tipotelefone2;
+    protected $dddtelefone2;
+    protected $numtelefone2;
+    protected $operadora2;
+    protected $horariocontato2;
+    
     protected $idfuncionario;
     protected $tipofuncionario;
     protected $setorfuncionario;
@@ -101,7 +108,7 @@ class Funcionario {
     }
 
     public function Inclui() {
-        //funcionario
+        //pessoa
         /* @var $_POST type */
 
         $this->nome = $_POST['nome'];
@@ -183,11 +190,11 @@ class Funcionario {
             exit();
         }
         
-        $this->tipotelefone = $_POST['tipotelefone2'];
-        $this->dddtelefone = $_POST['dddtelefone2'];
-        $this->numtelefone = $_POST['numtelefone2'];
-        $this->operadora = $_POST['operadora2'];
-        $this->horariocontato = $_POST['horariocontato2'];
+        $this->tipotelefone2 = $_POST['tipotelefone2'];
+        $this->dddtelefone2 = $_POST['dddtelefone2'];
+        $this->numtelefone2 = $_POST['numtelefone2'];
+        $this->operadora2 = $_POST['operadora2'];
+        $this->horariocontato2 = $_POST['horariocontato2'];
 
         $this->tipofuncionario = $_POST['tipofuncionario'];
         $this->statusfuncionario = $_POST['statusfuncionario'];
@@ -244,36 +251,39 @@ class Funcionario {
             $id = $pdo->lastInsertId();
             if ($cst1->execute()) {
             //inserindo dados na tb_endereco   
-            $cst2 = $pdo->prepare("INSERT INTO tb_endereco (endereco , bairro ,cidade , uf , cep, ptreferencia)"
-                        . " VALUES(:endereco , :bairro, :cidade, :uf, :cep, ptreferencia);");
+            $cst2 = $pdo->prepare("INSERT INTO tb_endereco (endereco , bairro ,cidade , uf , cep, ptreferencia, tb_funcionario_idfuncionario)"
+                        . " VALUES(:endereco , :bairro, :cidade, :uf, :cep, :ptreferencia, :tb_funcionario);");
             $cst2->bindParam(":endereco", $this->endereco, PDO::PARAM_STR);
             $cst2->bindParam(":bairro", $this->bairro, PDO::PARAM_STR);
             $cst2->bindParam(":cidade", $this->cidade, PDO::PARAM_STR);
             $cst2->bindParam(":uf", $this->uf, PDO::PARAM_STR);
             $cst2->bindParam(":cep", $this->cep, PDO::PARAM_STR);
             $cst2->bindParam(":ptreferencia", $this->ptreferencia, PDO::PARAM_STR);
+            $cst2->bindParam(":tb_funcionario", $id, PDO::PARAM_STR);
             //print_r($cst);  
             $id = $pdo->lastInsertId();
             if ($cst2->execute()){
             //inserindo dados na tb_telefone   - tel1              
-            $cst3 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato)"
-                        . " VALUES(:tipotelefone1 , :dddtelefone1, :numtelefone1, :operadora1, :horariocontato1);");
+            $cst3 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato, tb_funcionario_idfuncionario)"
+                        . " VALUES(:tipotelefone1 , :dddtelefone1, :numtelefone1, :operadora1, :horariocontato1, :tb_funcionario);");
             $cst3->bindParam(":tipotelefone1", $this->tipotelefone, PDO::PARAM_STR);
             $cst3->bindParam(":dddtelefone1", $this->dddtelefone, PDO::PARAM_STR);
             $cst3->bindParam(":numtelefone1", $this->numtelefone, PDO::PARAM_STR);
             $cst3->bindParam(":operadora1", $this->operadora, PDO::PARAM_STR);
             $cst3->bindParam(":horariocontato1", $this->horariocontato, PDO::PARAM_STR);
+            $cst3->bindParam(":tb_funcionario", $id, PDO::PARAM_STR);
             //print_r($cst);  
             $id = $pdo->lastInsertId();
             if ($cst3->execute()){
             //inserindo dados na tb_telefone - tel 2
-            $cst4 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato)"
-                        . " VALUES(:tipotelefone2 , :dddtelefone2, :numtelefone2, :operadora2, :horariocontato2);");
-            $cst4->bindParam(":tipotelefone2", $this->tipotelefone, PDO::PARAM_STR);
-            $cst4->bindParam(":dddtelefone2", $this->dddtelefone, PDO::PARAM_STR);
-            $cst4->bindParam(":numtelefone2", $this->numtelefone, PDO::PARAM_STR);
-            $cst4->bindParam(":operadora2", $this->operadora, PDO::PARAM_STR);
-            $cst4->bindParam(":horariocontato2", $this->horariocontato, PDO::PARAM_STR);   
+            $cst4 = $pdo->prepare("INSERT INTO tb_telefone (tipotelefone , dddtelefone , numtelefone , operadora , horariocontato, tb_funcionario_idfuncionario)"
+                        . " VALUES(:tipotelefone2 , :dddtelefone2, :numtelefone2, :operadora2, :horariocontato2, :tb_funcionario);");
+            $cst4->bindParam(":tipotelefone2", $this->tipotelefone2, PDO::PARAM_STR);
+            $cst4->bindParam(":dddtelefone2", $this->dddtelefone2, PDO::PARAM_STR);
+            $cst4->bindParam(":numtelefone2", $this->numtelefone2, PDO::PARAM_STR);
+            $cst4->bindParam(":operadora2", $this->operadora2, PDO::PARAM_STR);
+            $cst4->bindParam(":horariocontato2", $this->horariocontato2, PDO::PARAM_STR);
+            $cst4->bindParam(":tb_funcionario", $id, PDO::PARAM_STR);
               }                
              }
             }
